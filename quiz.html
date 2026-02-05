@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>كويز المعرفة مع الحسام حسن</title>
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body>
+
+  <header class="top">
+    <a class="back" href="index.html">⬅️ الرجوع للموقع</a>
+
+    <div class="title">
+      <div class="titleRow">
+        <img class="avatar" src="hossam.jpg" alt="صورة حسام حسن" loading="lazy" />
+        <div>
+          <h1>كويز المعرفة مع الحسام حسن</h1>
+          <p>نظام مراحل + وسائل مساعدة</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <aside class="panel">
+      <div class="card">
+        <h2>الإعدادات</h2>
+
+        <div class="row">
+          <label class="lbl" for="stageCount">عدد المراحل</label>
+          <select id="stageCount">
+            <option value="1">1 (20 سؤال)</option>
+            <option value="2">2 (40 سؤال)</option>
+            <option value="3">3 (60 سؤال)</option>
+            <option value="4">4 (80 سؤال)</option>
+            <option value="5" selected>5 (100 سؤال)</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label class="lbl" for="mixMode">نظام الأسئلة</label>
+          <select id="mixMode">
+            <option value="mixed" selected>متنوع (من كل الأقسام)</option>
+            <option value="religion">ديني 🕌</option>
+            <option value="general">معلومات عامة 🌍</option>
+            <option value="logic">ذكاء 🧠</option>
+            <option value="education">تعليم 🧑‍🏫</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label class="lbl" for="difficulty">الصعوبة</label>
+          <select id="difficulty">
+            <option value="ladder" selected>متدرجة (زي المليون)</option>
+            <option value="easy">سهل</option>
+            <option value="medium">متوسط</option>
+            <option value="hard">صعب</option>
+          </select>
+        </div>
+
+        <div class="buttons">
+          <button class="btn" id="startBtn" type="button">ابدأ اللعبة</button>
+          <button class="btn ghost" id="resetBtn" type="button">تصفير</button>
+        </div>
+
+        <div class="card small">
+          <h3>وسائل المساعدة</h3>
+          <div class="lifelines">
+            <button class="chip" id="ll5050" type="button">50 : 50</button>
+            <button class="chip" id="llAudience" type="button">سؤال الجمهور</button>
+            <button class="chip" id="llPhone" type="button">اتصال بصديق</button>
+          </div>
+        </div>
+
+        <div class="card small">
+          <h3>التقدم</h3>
+          <div class="progress">
+            <div><span class="muted">المرحلة:</span> <b id="pStage">—</b></div>
+            <div><span class="muted">السؤال:</span> <b id="pQ">—</b></div>
+            <div><span class="muted">النتيجة:</span> <b id="pScore">0</b></div>
+          </div>
+        </div>
+
+      </div> <!-- ✅ قفل card -->
+    </aside> <!-- ✅ قفل aside -->
+
+    <section class="game">
+      <div class="qcard">
+        <div class="meta">
+          <span class="badge" id="catBadge">—</span>
+          <span class="badge ghost" id="lvlBadge">—</span>
+        </div>
+
+        <h2 class="question" id="questionText">اضغط "ابدأ اللعبة"</h2>
+
+        <div class="choices" id="choices"></div>
+
+        <div class="hint" id="hintBox"></div>
+
+        <div class="footerBtns">
+          <button class="btn ghost" id="nextBtn" type="button" disabled>التالي</button>
+          <button class="btn danger" id="quitBtn" type="button" disabled>إنهاء</button>
+        </div>
+
+        <div class="overlay" id="overlay" aria-hidden="true">
+          <div class="modal">
+            <h2 id="ovTitle">—</h2>
+            <p id="ovText" class="muted">—</p>
+
+            <div class="bioBox" id="ovBio" style="display:none;">
+              <h3>عن حسام حسن الأزهري</h3>
+              <p class="muted">
+                مطور ويب ومعلم أزهري وأخصائي تربوي. أحب دمج التقنية بالتعليم عبر مواقع وألعاب تفاعلية مفيدة.
+              </p>
+              <div class="bioLinks">
+                <a class="btn ghost sm" href="index.html#contact">📩 تواصل معي</a>
+                <a class="btn ghost sm" href="https://linktr.ee/Hossam234" target="_blank" rel="noreferrer">🔗 Linktree</a>
+              </div>
+            </div>
+
+            <div class="modalBtns">
+              <button class="btn" id="ovContinue" type="button">متابعة</button>
+              <button class="btn ghost" id="ovClose" type="button">إغلاق</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>

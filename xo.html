@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>لعبة XO | حسام حسن الأزهري</title>
+  <meta name="description" content="لعبة XO تفاعلية: ضد الكمبيوتر أو لاعبين، مستويات صعوبة، نتائج محفوظة." />
+  <link rel="stylesheet" href="xo.css" />
+</head>
+
+<body>
+  <header class="top">
+    <a class="back" href="index.html" aria-label="العودة للموقع">⬅️ الرجوع للموقع</a>
+    <div class="title">
+      <h1>لعبة XO</h1>
+      <p>ضد الكمبيوتر أو لاعبين — نتائج محفوظة</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel" aria-label="لوحة الإعدادات">
+      <div class="row">
+        <label class="lbl" for="mode">وضع اللعب</label>
+        <select id="mode">
+          <option value="ai">ضد الكمبيوتر</option>
+          <option value="pvp">لاعبين (2 Players)</option>
+        </select>
+      </div>
+
+      <div class="row" id="difficultyRow">
+        <label class="lbl" for="difficulty">مستوى الكمبيوتر</label>
+        <select id="difficulty">
+          <option value="easy">سهل</option>
+          <option value="medium" selected>متوسط</option>
+          <option value="hard">صعب</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label class="lbl" for="playerMark">اختيار علامتك</label>
+        <select id="playerMark">
+          <option value="X" selected>X</option>
+          <option value="O">O</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label class="lbl" for="firstTurn">مين يبدأ؟</label>
+        <select id="firstTurn">
+          <option value="player" selected>أنا</option>
+          <option value="other">الخصم</option>
+          <option value="random">عشوائي</option>
+        </select>
+      </div>
+
+      <div class="row toggles">
+        <label class="toggle">
+          <input type="checkbox" id="sound" checked />
+          <span>صوت خفيف</span>
+        </label>
+
+        <label class="toggle">
+          <input type="checkbox" id="hints" checked />
+          <span>تلميحات (Highlight)</span>
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button id="newGame" class="btn">لعبة جديدة</button>
+        <button id="resetRound" class="btn ghost">إعادة الجولة</button>
+        <button id="resetAll" class="btn danger">مسح النتائج</button>
+      </div>
+
+      <div class="score" aria-label="لوحة النتائج">
+        <div class="s-card">
+          <div class="s-title" id="nameA">اللاعب A</div>
+          <div class="s-num" id="scoreA">0</div>
+          <div class="s-sub" id="markA">X</div>
+        </div>
+        <div class="s-card">
+          <div class="s-title">تعادل</div>
+          <div class="s-num" id="scoreD">0</div>
+          <div class="s-sub">—</div>
+        </div>
+        <div class="s-card">
+          <div class="s-title" id="nameB">اللاعب B</div>
+          <div class="s-num" id="scoreB">0</div>
+          <div class="s-sub" id="markB">O</div>
+        </div>
+      </div>
+
+      <div class="status" role="status" aria-live="polite" id="status">
+        جهّز الإعدادات واضغط "لعبة جديدة".
+      </div>
+
+      <div class="tips">
+        <strong>اختصار:</strong>  
+        استخدم الأسهم + Enter للعب من الكيبورد.
+      </div>
+    </section>
+
+    <section class="boardWrap" aria-label="لوحة اللعبة">
+      <div class="board" id="board" role="grid" aria-label="لوحة XO">
+        <!-- 9 خلايا من JS -->
+      </div>
+
+      <div class="result" id="result" aria-hidden="true">
+        <div class="resultCard">
+          <h2 id="resultTitle">انتهت الجولة</h2>
+          <p id="resultText">—</p>
+          <div class="resultBtns">
+            <button class="btn" id="playAgain">العب تاني</button>
+            <button class="btn ghost" id="closeResult">إغلاق</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© <span id="year"></span> حسام حسن الأزهري</span>
+  </footer>
+
+  <script src="xo.js"></script>
+</body>
+</html>
